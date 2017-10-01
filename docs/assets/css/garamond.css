@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src: local('EB Garamond'), local('EBGaramond'), url(/assets/fonts/eb-garamond.ttf) format('truetype');
+}

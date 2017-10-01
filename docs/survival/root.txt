@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/assets/ico/favicon.png">
+
+    <title>I Hate Systemd</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+
+    <script src="/assets/js/jquery.min.js"></script>
+	<!-- <script src="/assets/js/modernizr.custom.js"></script> -->
+	
+
+	
+    <link href='/assets/css/oswald.css' rel='stylesheet' type='text/css'>
+    <link href='/assets/css/garamond.css' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+		
+	<!-- Menu -->
+	<nav class="menu" id="theMenu">
+		<div class="menu-wrap">
+			<h1 class="logo"><a href="/#home">i hate systemd</a></h1>
+			<i class="icon-remove menu-close"></i>
+			<a href="#home" class="smoothScroll">Home</a>
+                        <a href="/good#content" class="smoothScroll">The Good</a>
+                        <a href="/bad#content" class="smoothScroll">The Bad</a>
+                        <a href="/ugly#content" class="smoothScroll">The Ugly</a>
+                        <a href="/survival#content" class="smoothScroll">The Survival Guide</a>
+			<a href="#"><i class="icon-facebook"></i></a>
+			<a href="#"><i class="icon-twitter"></i></a>
+			<a href="#"><i class="icon-dribbble"></i></a>
+			<a href="#"><i class="icon-envelope"></i></a>
+		</div>
+		
+		<!-- Menu button -->
+		<div id="menuToggle"><i class="icon-reorder"></i></div>
+	</nav>
+
+
+	
+	<!-- ========== HEADER SECTION ========== -->
+	<section id="home" name="home"></section>
+	<div id="headerwrap">
+		<div class="container">
+			<div class="logo">
+				<img src="/assets/img/logo.png">
+			</div>
+			<br>
+			<div class="row">
+				<h1>i hate systemd</h1>
+				<br>
+				<h3>The Good, The Bad, The Ugly.</h3>
+				<br/>
+				<p class="centered"><i class="icon icon-circle"></i> <i class="icon icon-circle"></i> <i class="icon icon-circle"></i></p>
+				<h3>And The Survival Guide.</h3>
+				<div class="col-lg-6 col-lg-offset-3">
+				</div>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+
+
+	-- header diffs to here --
+	
+	
+	<section id="good" name="good"></section>
+	<div id="f">
+		<div class="container">
+			<div class="row">
+				<h3>The Good</h3>
+				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+				
+				<div class="col-lg-6 col-lg-offset-3">
+					<p>There are some Good things about systemd, let's not deny it.</p>
+					<p><a href="/good/#content" class="btn btn-success" role="button">SHOW ME THE GOOD</a></p>
+
+				</div>								
+			</div>
+		</div><!-- /container -->
+	</div><!-- /f -->
+	
+
+	<section id="bad" name="bad"></section>
+	<div id="f">
+		<div class="container">
+                        <div class="row">
+                                <h3>The Bad</h3>
+                                <p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+
+                                <div class="col-lg-6 col-lg-offset-3">
+                                        <p>There are a lot of just plain Bad things about systemd.</p>
+					<p>A lot.</p>
+					<p><a href="/bad/#content" class="btn btn-danger" role="button">SHOW ME THE BAD</a></p>
+                                </div>
+                        </div>
+		</div><!-- container -->
+	</div>	<!-- f -->
+
+        <section id="ugly" name="ugly"></section>
+        <div id="f">
+                <div class="container">
+                        <div class="row">
+                                <h3>The Ugly</h3>
+                                <p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+
+                                <div class="col-lg-6 col-lg-offset-3">
+                                        <p>There are a lot of just plain Ugly things about systemd.</p>
+					<p><a href="/ugly/#content" class="btn btn-default" role="button">SHOW ME THE UGLY</a></p>
+                                </div>
+                        </div>
+                </div><!-- container -->
+        </div>  <!-- f -->
+
+        <section id="survival" name="survival"></section>
+        <div id="f">
+                <div class="container">
+                        <div class="row">
+                                <h3>The Survival Guide</h3>
+                                <p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+
+                                <div class="col-lg-6 col-lg-offset-3">
+                                        <p>There is a Survival Guide here.</p>
+                                        <p>It's a Work In Progress.</p>
+					<p><a href="/survival/#content" class="btn btn-primary" role="button">SHOW ME THE SURVIVAL GUIDE</a></p>
+                                </div>
+                        </div>
+                </div><!-- container -->
+        </div>  <!-- f -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="/assets/js/classie.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/smoothscroll.js"></script>
+	<script src="/assets/js/main.js"></script>
+</body>
+</html>
+
