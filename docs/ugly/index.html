@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107197722-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'UA-107197722-1');
+</script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/assets/ico/favicon.png">
+
+    <title>I Hate Systemd</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+
+    <script src="/assets/js/jquery.min.js"></script>
+	<!-- <script src="/assets/js/modernizr.custom.js"></script> -->
+	
+
+	
+    <link href='/assets/css/oswald.css' rel='stylesheet' type='text/css'>
+    <link href='/assets/css/garamond.css' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+		
+	<!-- Menu -->
+	<nav class="menu" id="theMenu">
+		<div class="menu-wrap">
+			<h1 class="logo"><a href="/#home">i hate systemd</a></h1>
+			<i class="icon-remove menu-close"></i>
+			<a href="/#home" class="smoothScroll">Home</a>
+			<a href="/good#content" class="smoothScroll">The Good</a>
+			<a href="/bad#content" class="smoothScroll">The Bad</a>
+			<a href="/ugly#content" class="smoothScroll">The Ugly</a>
+			<a href="/survival#content" class="smoothScroll">The Survival Guide</a>
+			<a href="/why#content" class="smoothScroll">Why?</a>
+			<a href="#"><i class="icon-facebook"></i></a>
+			<a href="https://twitter.com/ihatesystemd"><i class="icon-twitter"></i></a>
+			<a href="#"><i class="icon-dribbble"></i></a>
+			<a href="#"><i class="icon-envelope"></i></a>
+		</div>
+		
+		<!-- Menu button -->
+		<div id="menuToggle"><i class="icon-reorder"></i></div>
+	</nav>
+
+
+	
+	<!-- ========== HEADER SECTION ========== -->
+	<section id="home" name="home"></section>
+	<div id="headerwrap">
+		<div class="container">
+			<div class="logo">
+				<img src="/assets/img/logo.png">
+			</div>
+			<br>
+			<div class="row">
+				<h1>i hate systemd</h1>
+				<br>
+                                <h3>The Good, The Bad, The Ugly.</h3>
+				<br>
+                                <p class="centered"><i class="icon icon-circle"></i> <i class="icon icon-circle"></i> <i class="icon icon-circle"></i></p>
+                                <h3>And The Survival Guide.</h3>
+<p><i>(Work In Progress)</i></p>
+				<div class="col-lg-6 col-lg-offset-3">
+				</div>
+			</div>
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+	
+        <section id="content" name="content"></section>
+        <div id="f">
+                <div class="container">
+                        <div class="row">
+
+				<h3>The Ugly</h3>
+				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+				
+				<div class="col-lg-6 col-lg-offset-3">
+					<p>Some things about systemd aren't necessarily <b>bad</b>, they're just damned <b>Ugly</b>.
+				</div>								
+			</div> <!-- /row -->
+
+			<div class="row">
+<h3>After=network.target</h3>
+<div class="col-lg-10 col-lg-offset-1 text-justify">
+<p>
+If you define <code>After=network.target</code> in a Unit file, that means nothing to systemd. And certainly does not mean what you would be likely to expect it to mean:</p>
+<blockquote><p>network.target has very little meaning during start-up. It only indicates that the network management stack is up after it has been reached. Whether any network interfaces are already configured when it is reached is undefined. It's [sic] primary purpose is for ordering things properly at shutdown: since the shutdown ordering of units in systemd is the reverse of the startup ordering, any unit that is order After=network.target can be sure that it is stopped before the network is shut down if the system is powered off.</p>
+<footer> -- <a target="_blank" rel=nofollow href="https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/">https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/</a></footer>
+</blockquote>
+</p>
+</div>
+</div>
+
+
+
+<div class="row"><h3>list-dependencies</h3><div class="col-lg-10 col-lg-offset-1 text-justify">
+<p>systemctl contains a <code>list-dependencies</code> command:</p>
+<pre>
+systemctl list-dependencies --after gdm.service
+</pre>
+<p>However, this lists all things that contain an "After: gdm-service" in their definition, not the things that are <b>after</b> gdm.service in the dependencies tree.</p>
+<p>So it actually shows the things that start <b>before</b> gdm.service, not <b>after</b> it.
+(similarly “--before” shows those that start <b>after</b> gdm, not <b>before</b> it)
+</p></div></div>
+
+<div class="row"><h3>systemctl show</h3><div class="col-lg-10 col-lg-offset-1 text-justify">
+<p><code>systemctl show sshd</code> shows the settings of sshd. These come from the <code>/lib/systemd/system/sshd.service</code> file, merged with the default system-wide settings. That's fair enough, I am sure you will agree. Quite useful, in fact.</p>
+<p>If you try <code>systemctl show SomeServiceNameIJustMadeUp</code>, it will show the default settings, even though there is no such service. It won't tell you there's no such service, it will just plough on and let you wallow in your misconception that it is a valid service. Thanks, systemd.</p>
+</p></div></div>
+<!-- /template -->
+
+<!-- really just here as a template -->
+<div class="row"><h3>More</h3><div class="col-lg-10 col-lg-offset-1 text-justify">
+<p>There's always more ...
+</p></div></div>
+<!-- /template -->
+
+
+</div><!-- /container --></div><!-- /f -->
+
+        <div id="f">
+        <p><a target="_blank" href="https://twitter.com/ihatesystemd">@ihatesystemd</a></p>
+        </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="/assets/js/classie.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/smoothscroll.js"></script>
+	<script src="/assets/js/main.js"></script>
+</body>
+</html>
